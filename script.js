@@ -29,6 +29,7 @@ for (const booking of bookings) {
 
 // Book a room.
 const bookRoomForm = document.getElementById("book-room");
+
 bookRoomForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -60,31 +61,31 @@ bookRoomForm.addEventListener("submit", function(event) {
         return;
     }
 
-    // Check for conflicts.
-    for (const booking of bookings) {
-        if (booking.room === room && booking.start_time === start_time && booking.end_time === end_time) {
-            alert("The time slot you selected is already booked.");
-            return;
+    // Get the list of viable rooms.
+    const viableRooms = [];
+    for (const room of rooms) {
+        if (!isRoomBooked(room, start_time.value, end_time.value)) {
+            viableRooms.push(room);
         }
     }
 
-    // Book the room.
-    const booking = {
-        room,
-        start_time,
-        end_time,
-    };
-    bookings.push(booking);
-
-    // Save the list of available rooms and the user's bookings to local storage.
-    localStorage.setItem("rooms", JSON.stringify(rooms));
-    localStorage.setItem("bookings", JSON.stringify(bookings));
-
-    // Reset the form.
-    selectRoom.value = "";
-    start_time.value = "";
-    end_time.value = "";
-
-    // Notify the user that the room has been booked.
-    alert("The room has been booked successfully.");
+    // Update the select box with the list of viable rooms.
+    const selectRoom = document.querySelector("select[name=room]");
+    selectRoom.innerHTML = "";
+    for (const room of viableRooms) {
+        const option = document.createElement("option");
+        option.value = room.name;
+        option.textContent = room.name;
+        selectRoom.appendChild(option);
+    }
 });
+
+// Check if a room is booked.
+function isRoomBooked(room, start_time, end_time) {
+    for (const booking of bookings) {
+        if (booking.room === room && booking.start_time === start_time && booking.end_time === end_time) {
+            return true;
+        }
+    }
+    return false;
+}
