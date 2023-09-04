@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.rooms {
+    margin-bottom: 20px;
+}
+
+.rooms h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.rooms ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rooms li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.bookings {
+    margin-bottom: 20px;
+}
+
+.bookings h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bookings ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bookings li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.book-room {
+    margin-bottom: 20px;
+}
+
+.book-room h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.book-room form {
+    width: 100%;
+}
+
+.book-room form select {
+    width: 100%;
+}
+
+.book-room form input[type="time"] {
+    width: 100%;
+}

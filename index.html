@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Room Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meeting Room Booking</h1>
+        <div class="rooms">
+            <h2>Available Rooms</h2>
+            <ul id="rooms-list">
+            </ul>
+        </div>
+        <div class="bookings">
+            <h2>Your Bookings</h2>
+            <ul id="bookings-list">
+            </ul>
+        </div>
+        <div class="book-room">
+            <h2>Book a Room</h2>
+            <form action="/book-room" method="post">
+                <select name="room">
+                    <option value="" disabled selected>Select a room</option>
+                </select>
+                <input type="time" name="start-time">
+                <input type="time" name="end-time">
+                <input type="submit" value="Book Room">
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+..
